@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CoreKit'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'CoreKit is a private framework for essential utilities in iOS development.'
   s.description      = <<-DESC
     CoreKit provides essential utilities for iOS development. 
@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/a2z-private/core-kit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Your Name' => 'your_email@example.com' }
-  s.source           = { :git => 'https://github.com/a2z-private/core-kit.git', :tag => '0.0.2' }
+  s.source           = { :git => 'https://github.com/a2z-private/core-kit.git', :tag => '0.0.3' }
   s.platform         = :ios, '13.0'
-  s.vendored_frameworks = 'CoreKit.xcframework'
+  s.vendored_frameworks = 'CoreKit.xcframework.zip'
   s.swift_versions   = ['5.0', '5.1', '5.2', '5.3', '5.4', '5.5']
 end
