@@ -8,9 +8,9 @@ Pod::Spec.new do |s|
   DESC
   s.homepage         = 'https://github.com/a2z-private/core-kit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Your Name' => 'your_email@example.com' }
+  s.author           = { "Elshad Seyidmammadov" => "elshadsm@gmail.com" }
   s.source           = { :git => 'https://github.com/a2z-private/core-kit.git', :tag => '0.0.3' }
   s.platform         = :ios, '13.0'
-  s.vendored_frameworks = 'CoreKit.xcframework.zip'
+  s.vendored_frameworks = 'CoreKit.xcframework'
   s.swift_versions   = ['5.0', '5.1', '5.2', '5.3', '5.4', '5.5']
 end
