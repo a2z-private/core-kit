@@ -1,0 +1,757 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CoreKit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CommonCrypto
+import CryptoKit
+import Foundation
+import Intents
+import OSLog
+import Swift
+import SwiftDate
+import Swinject
+import Toast
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum App {
+}
+extension UIKit.UIColor {
+  convenience public init(hexString: Swift.String)
+}
+public enum JWTDecodeError : Foundation.LocalizedError, Swift.CustomDebugStringConvertible {
+  case invalidBase64URL(Swift.String)
+  case invalidJSON(Swift.String)
+  case invalidPartCount(Swift.String, Swift.Int)
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public struct Constants {
+  public struct Api {
+    public static let apiBaseUrl: Swift.String
+    public static let newApiBaseUrl: Swift.String
+    public static let xmppDomain: Swift.String
+    public static let xmppPort: Swift.String
+    public static let xmppJidDomain: Swift.String
+    public static let socketBaseUrl: Swift.String
+    public static let turnServerAddress: Swift.String
+    public static let stunServerAddress: Swift.String
+  }
+  public struct ApiPath {
+    public static let checkMobileNumbers: Swift.String
+  }
+  public var isDebug: Swift.Bool
+}
+public enum ContentType : Swift.String {
+  case json
+  case formData
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum HTTPHeaderField : Swift.String {
+  case contentType
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public typealias EncryptedMessageBodyAndKeys = (encryptedMessageBody: Swift.String, encryptedSecretKey: Swift.String, encryptedIv: Swift.String)
+public class CryptoEnigmaOld {
+  final public let rsa: CoreKit.Rsa
+  public var secretKey: Foundation.Data
+  public var iv: Foundation.Data
+  public init(rsa: CoreKit.Rsa = Rsa(), secretKey: Swift.String = "", iv: Swift.String = "")
+  public func encrypt(messageText: Swift.String, rsaPublicKey: Swift.String) -> CoreKit.EncryptedMessageBodyAndKeys?
+  public func encryptGroup(messageText: Swift.String, groupKey: Foundation.Data) -> CoreKit.EncryptedMessageBodyAndKeys?
+  public func decrypt(secretKey: Swift.String, iv: Swift.String, msgBody: Swift.String) -> Swift.String?
+  public func decrypt(_ msgBody: Swift.String) -> Swift.String?
+  public func decryptGroup(_ msgBody: Swift.String, groupKey: Foundation.Data) -> Swift.String?
+  @objc deinit
+}
+extension Foundation.Date {
+  public func isInSameDayOf(date: Foundation.Date) -> Swift.Bool
+  public func startOfDay(in calendar: Foundation.Calendar = .current) -> Foundation.Date
+  public func endOfDay(in calendar: Foundation.Calendar = .current) -> Foundation.Date
+  public func startOfMonth(in calendar: Foundation.Calendar = .current) -> Foundation.Date
+  public func endOfMonth(in calendar: Foundation.Calendar = .current) -> Foundation.Date
+}
+extension Foundation.Date {
+  public func datePhraseRelativeToToday() -> Swift.String
+}
+extension Foundation.Date {
+  public func stringToDate(_ timeInterval: Swift.String?) -> Swift.String
+  public func stringToDate() -> Foundation.Date
+  public enum DateComponentReturnType {
+    case date
+    case time
+    public static func == (a: Foundation.Date.DateComponentReturnType, b: Foundation.Date.DateComponentReturnType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func separateDate(return returnType: Foundation.Date.DateComponentReturnType) -> Swift.String?
+}
+public typealias UnixTimestamp = Swift.Int
+extension Foundation.Date {
+  public var unixTimestamp: CoreKit.UnixTimestamp {
+    get
+  }
+}
+extension Swift.Int {
+  public var date: Foundation.Date {
+    get
+  }
+}
+extension Swift.Int {
+  public var relativeDate: Swift.String {
+    get
+  }
+}
+extension Foundation.DateFormatter {
+  public func years<R>(_ range: R) -> [Swift.String] where R : Swift.RandomAccessCollection, R.Element == Swift.Int
+  public func days() -> [Swift.String]
+  public func months() -> [Swift.String]
+}
+extension UIKit.UIApplication {
+  @_Concurrency.MainActor(unsafe) public func adjustGlobalSafeAreaForMessageView(_ top: CoreFoundation.CGFloat = 24)
+  @_Concurrency.MainActor(unsafe) public func resetGlobalSafeAreaInsets()
+}
+@_hasMissingDesignatedInitializers public class UserSessionManager {
+  public var currentUser: CoreKit.User? {
+    get
+  }
+  @objc deinit
+}
+public enum APPDefaultsKey : Swift.String {
+  case locationServicesKey
+  case updatedDelegate
+  case isPassword
+  case accessToken
+  case refreshToken
+  case isBiometric
+  case passwordSavedDate
+  case passcode
+  case publiRsaKey
+  case userNode
+  case userSeenTime
+  case userTimestamp
+  case lastArchivedMessageId
+  case user
+  case currentPushToken
+  case newPushToken
+  case pushKitToken
+  case fcmToken
+  case currentCallId
+  case isRealmEncryptionMigrated
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class APPDefaults {
+  @objc deinit
+}
+extension CoreKit.APPDefaults {
+  public static func setObject(key: CoreKit.APPDefaultsKey, value: Any)
+  public static func setData(key: CoreKit.APPDefaultsKey, value: Foundation.Data)
+  public static func setString(key: CoreKit.APPDefaultsKey, value: Swift.String?)
+  public static func setStringArray(key: CoreKit.APPDefaultsKey, value: [Swift.String]?)
+  public static func setInteger(key: CoreKit.APPDefaultsKey, value: Swift.Int)
+  public static func setInteger(key: CoreKit.APPDefaultsKey, number: Swift.String, value: Swift.Int)
+  public static func setDouble(key: CoreKit.APPDefaultsKey, value: Swift.Double)
+  public static func setFloat(key: CoreKit.APPDefaultsKey, value: Swift.Float)
+  public static func setBool(key: CoreKit.APPDefaultsKey, value: Swift.Bool)
+  public static func setString(key: CoreKit.APPDefaultsKey, number: Swift.String, value: Swift.String)
+  public static func getObject(key: CoreKit.APPDefaultsKey) -> Any?
+  public static func getData(key: CoreKit.APPDefaultsKey) -> Foundation.Data?
+  public static func getString(key: CoreKit.APPDefaultsKey) -> Swift.String?
+  public static func getString(key: CoreKit.APPDefaultsKey, number: Swift.String) -> Swift.String?
+  public static func getInteger(key: CoreKit.APPDefaultsKey) -> Swift.Int
+  public static func getInteger(key: CoreKit.APPDefaultsKey, number: Swift.String) -> Swift.Int
+  public static func getDouble(key: CoreKit.APPDefaultsKey) -> Swift.Double
+  public static func getFloat(key: CoreKit.APPDefaultsKey) -> Swift.Float
+  public static func getBool(key: CoreKit.APPDefaultsKey) -> Swift.Bool
+  public static func getStringArray(key: CoreKit.APPDefaultsKey) -> [Swift.String]?
+  public static func remove(key: CoreKit.APPDefaultsKey)
+  public static func remove(key: CoreKit.APPDefaultsKey, number: Swift.String)
+  public static func valueExists(key: CoreKit.APPDefaultsKey, number: Swift.String) -> Swift.Bool
+}
+public struct KeychainItemInfo {
+  public let accountName: Swift.String
+  public let serviceName: Swift.String
+}
+public protocol Keychain {
+  func string(for key: Swift.String, account: Swift.String) -> Swift.String?
+  func set(string: Swift.String?, for key: Swift.String, account: Swift.String)
+  func getItemsInfo() -> [CoreKit.KeychainItemInfo]
+}
+public class KeychainHelper : CoreKit.Keychain {
+  public init()
+  public enum Constants {
+    public static let defaultAccount: Swift.String
+  }
+  public func string(for key: Swift.String, account: Swift.String = Constants.defaultAccount) -> Swift.String?
+  public func set(string: Swift.String?, for key: Swift.String, account: Swift.String = Constants.defaultAccount)
+  public func getItemsInfo() -> [CoreKit.KeychainItemInfo]
+  @objc deinit
+}
+extension Foundation.DateFormatter {
+  public static let dateTime: Foundation.DateFormatter
+  public static let shortDate: Foundation.DateFormatter
+  public static let shortDayMonthDate: Foundation.DateFormatter
+  public static let shortTime: Foundation.DateFormatter
+  public static let time: Foundation.DateFormatter
+  public static let serverAzDateTime: Foundation.DateFormatter
+  public static func localized() -> Foundation.DateFormatter
+  public static func formatter(with format: Swift.String) -> Foundation.DateFormatter
+}
+public protocol StartCallConvertible {
+  var startCallHandle: Swift.String? { get }
+  var video: Swift.Bool? { get }
+}
+extension CoreKit.StartCallConvertible {
+  public var video: Swift.Bool? {
+    get
+  }
+}
+public protocol JWT {
+  var header: [Swift.String : Any] { get }
+  var body: [Swift.String : Any] { get }
+  var signature: Swift.String? { get }
+  var string: Swift.String { get }
+  var expiresAt: Foundation.Date? { get }
+  var issuer: Swift.String? { get }
+  var subject: Swift.String? { get }
+  var audience: [Swift.String]? { get }
+  var issuedAt: Foundation.Date? { get }
+  var notBefore: Foundation.Date? { get }
+  var identifier: Swift.String? { get }
+  var expired: Swift.Bool { get }
+}
+extension CoreKit.JWT {
+  public func claim(name: Swift.String) -> CoreKit.Claim
+  public subscript(claim: Swift.String) -> CoreKit.Claim {
+    get
+  }
+}
+extension CoreKit.CoreServiceLocator {
+  public class func registerServices(container: Swinject.Container)
+}
+public struct User : Swift.Codable {
+  public var name: Swift.String?
+  public var surname: Swift.String?
+  public var mobileNumber: Swift.String?
+  public var password: Swift.String?
+  public var accessToken: Swift.String?
+  public var refreshToken: Swift.String?
+  public var publicKey: Swift.String?
+  public init(name: Swift.String?, surname: Swift.String?, mobileNumber: Swift.String?, password: Swift.String?, accessToken: Swift.String?, refreshToken: Swift.String?, publicKey: Swift.String?)
+  public func getTrimmedNumber() -> Swift.String?
+  public func getFullName() -> Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension Swift.Decodable {
+  public init<Key>(_ dict: [Key : Any]) throws where Key : Swift.Hashable
+}
+public protocol ServiceLocator {
+  var container: Swinject.Container { get }
+  func resolve<Service>(_ serviceType: Service.Type) -> Service
+  func resolve<Service>(_ serviceType: Service.Type, name: Swift.String?) -> Service
+  func resolve<Service, Arg>(_ serviceType: Service.Type, argument: Arg) -> Service
+  func resolve<Service, Arg1, Arg2>(_ serviceType: Service.Type, argument1: Arg1, argument2: Arg2) -> Service
+}
+extension CoreKit.ServiceLocator {
+  public func resolve<Service>(_ serviceType: Service.Type) -> Service
+  public func resolve<Service>(_ serviceType: Service.Type, name: Swift.String?) -> Service
+  public func resolve<Service, Arg>(_ serviceType: Service.Type, argument: Arg) -> Service
+  public func resolve<Service, Arg1, Arg2>(_ serviceType: Service.Type, argument1: Arg1, argument2: Arg2) -> Service
+  public func autoResolve<Service>() -> Service
+  public func autoResolve<Service>(name: Swift.String?) -> Service
+  public func autoResolve<Service, Arg>(argument: Arg) -> Service
+  public func autoResolve<Service, Arg1, Arg2>(argument1: Arg1, argument2: Arg2) -> Service
+}
+public func resolve<T>(dependency _: T.Type = T.self) -> T
+public typealias RsaKeys = (publickKey: Security.SecKey, privateKey: Security.SecKey)
+public class Rsa {
+  final public let tag: Swift.String
+  final public let algorithm: Security.SecKeyAlgorithm
+  public var error: Swift.Unmanaged<CoreFoundation.CFError>?
+  public var privateKey: Security.SecKey?
+  public var publicKey: Security.SecKey?
+  public init()
+  public func getKeys() -> CoreKit.RsaKeys?
+  public func getPublicKeyToExport() -> Swift.String
+  public func decodeSecKeyFromBase64(encodedKey: Swift.String, isPrivate: Swift.Bool = false) -> Security.SecKey?
+  @discardableResult
+  public func encrypt(data: Foundation.Data?, publicKey: Security.SecKey?) -> Foundation.Data?
+  @discardableResult
+  public func decrypt(data: Foundation.Data?) -> Foundation.Data?
+  @objc deinit
+}
+extension UIKit.UIImage {
+  public static let defaultUserImage: UIKit.UIImage
+  public static let mic: UIKit.UIImage
+  public static let plus: UIKit.UIImage
+  public static let more: UIKit.UIImage
+  public static let back: UIKit.UIImage
+  public static let docCircle: UIKit.UIImage
+  public static let photoImage: UIKit.UIImage
+  public static let photo2: UIKit.UIImage
+  public static let location: UIKit.UIImage
+  public static let audio: UIKit.UIImage
+  public static let micOff: UIKit.UIImage
+  public static let videoOff: UIKit.UIImage
+  public static let video: UIKit.UIImage
+  public static let videoFill: UIKit.UIImage
+  public static let speaker: UIKit.UIImage
+  public static let speakerOff: UIKit.UIImage
+  public static let archive: UIKit.UIImage
+  public static let chat: UIKit.UIImage
+  public static let phone: UIKit.UIImage
+  public static let info: UIKit.UIImage
+  public static let info2: UIKit.UIImage?
+  public static let rotateCamera: UIKit.UIImage
+  public static let up: UIKit.UIImage
+  public static let down: UIKit.UIImage
+  public static let record: UIKit.UIImage
+  public static let pause: UIKit.UIImage
+  public static let flashFill: UIKit.UIImage
+  public static let flash: UIKit.UIImage
+  public static let check: UIKit.UIImage
+  public static let appIcon: UIKit.UIImage
+  public static let groupImage: UIKit.UIImage
+  public static let arrowLeft: UIKit.UIImage
+  public static let play: UIKit.UIImage
+  public static let block: UIKit.UIImage
+  public static let privacy: UIKit.UIImage
+  public static let notification: UIKit.UIImage
+  public static let password: UIKit.UIImage
+  public static let fav: UIKit.UIImage
+  public static let touchID: UIKit.UIImage
+  public static let faceID: UIKit.UIImage
+  public static let defaultBackground: UIKit.UIImage
+  public static let send: UIKit.UIImage
+  public static let checkFill: UIKit.UIImage?
+  public static let checkmarkCircle: UIKit.UIImage
+  public static let circle: UIKit.UIImage
+  public static let trash: UIKit.UIImage
+  public static let clock: UIKit.UIImage
+  public static let edit: UIKit.UIImage
+  public static let copy: UIKit.UIImage
+  public static let forward: UIKit.UIImage
+  public static let unFav: UIKit.UIImage
+  public static let reply: UIKit.UIImage
+  public static let cameraImage: UIKit.UIImage
+  public static let close: UIKit.UIImage
+  public static let defaultLinkImage: UIKit.UIImage
+  public static let doc: UIKit.UIImage
+  public static let errorImage: UIKit.UIImage
+  public static let resend: UIKit.UIImage
+  public static let download: UIKit.UIImage
+  public static let nosign: UIKit.UIImage
+  public static let pin: UIKit.UIImage
+  public static let search: UIKit.UIImage
+  public static let stop: UIKit.UIImage
+  public static let share: UIKit.UIImage
+  public static let defaultWallpaper: UIKit.UIImage?
+  public static let right: UIKit.UIImage?
+  public static let wallpaper: UIKit.UIImage
+  public static let createGroup: UIKit.UIImage
+  public static let removeFromGroup: UIKit.UIImage
+  public static let addToGroup: UIKit.UIImage
+  public static let renameGroup: UIKit.UIImage
+  public static let screenshot: UIKit.UIImage
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class BarButtonItem : UIKit.UIBarButtonItem {
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String?, style: UIKit.UIBarButtonItem.Style = .plain, action: (() -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) convenience public init(image: UIKit.UIImage?, style: UIKit.UIBarButtonItem.Style = .plain, action: (() -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIKit.UIBarButtonItem {
+  @_Concurrency.MainActor(unsafe) public static var space: UIKit.UIBarButtonItem {
+    get
+  }
+}
+extension UIKit.UIColor {
+  public static let archiveButtonBackgroundColor: UIKit.UIColor
+  public static let countryCodeTextColor: UIKit.UIColor
+  public static let defaultImageBackgroundColor: UIKit.UIColor
+  public static let mainBackgroundColor: UIKit.UIColor
+  public static let mainColor: UIKit.UIColor
+  public static let mainTextColor: UIKit.UIColor
+  public static let messageBubbleFromMeColor: UIKit.UIColor
+  public static let messageReadStatusColor: UIKit.UIColor
+  public static let moreButtonBackgroundColor: UIKit.UIColor
+  public static let secondaryTextColor: UIKit.UIColor
+  public static let selectedCellColor: UIKit.UIColor
+  public static let settingsViewBackgroundColor: UIKit.UIColor
+  public static let tertiaryTextColor: UIKit.UIColor
+  public static let textFieldBackgroundColor: UIKit.UIColor
+  public static let unknownViewBackgroundColor: UIKit.UIColor
+  public static let unknownViewButtonBackgroundColor: UIKit.UIColor
+  public static let cameraBackgroundColor: UIKit.UIColor
+}
+@_hasMissingDesignatedInitializers public class CoreServiceLocator : CoreKit.ServiceLocator {
+  public static let shared: CoreKit.CoreServiceLocator
+  final public let container: Swinject.Container
+  @objc deinit
+}
+extension CoreKit.CoreServiceLocator {
+  public class func registerDependencies()
+}
+public enum PropertyList : Swift.String {
+  case thirdPartyKeys
+  case enviroment
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class ConfigurationManager : ObjectiveC.NSObject {
+  public class func getValue(for key: Swift.String, on propertyList: CoreKit.PropertyList = .enviroment) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Foundation.NSNotification.Name {
+  public static let conversationUpdated: Foundation.Notification.Name
+  public static let conversationCreated: Foundation.Notification.Name
+  public static let sendMessage: Foundation.Notification.Name
+  public static let typingChat: Foundation.Notification.Name
+  public static let typingChats: Foundation.Notification.Name
+  public static let receiveCall: Foundation.Notification.Name
+  public static let missedCall: Foundation.Notification.Name
+  public static let userOnlineInChat: Foundation.Notification.Name
+  public static let becomeAvailbale: Foundation.Notification.Name
+  public static let becomeUnavailbale: Foundation.Notification.Name
+  public static let downloadCancelled: Foundation.Notification.Name
+  public static let downloadStarted: Foundation.Notification.Name
+  public static let downloadCompleted: Foundation.Notification.Name
+  public static let updateProgress: Foundation.Notification.Name
+  public static let liveLocationUpdated: Foundation.Notification.Name
+  public static let statusBarTappedNotification: Foundation.Notification.Name
+  public static let messageSent: Foundation.Notification.Name
+  public static let segmentChanged: Foundation.Notification.Name
+  public static let switchValueChanged: Foundation.Notification.Name
+  public static let blockUser: Foundation.Notification.Name
+  public static let connectivityStatus: Foundation.Notification.Name
+  public static let xmppConnectionState: Foundation.Notification.Name
+  public static let syncContactsCompleted: Foundation.Notification.Name
+  public static let sceneDidBecomeActive: Foundation.Notification.Name
+  public static let sceneDidEnterBackground: Foundation.Notification.Name
+  public static let groupMembersUpdate: Foundation.Notification.Name
+  public static let youWereRemovedFromGroup: Foundation.Notification.Name
+}
+@objc @_inheritsConvenienceInitializers public class ToastHelper : ObjectiveC.NSObject {
+  public static func shared() -> CoreKit.ToastHelper
+  public func showError(message: Swift.String, duration: Foundation.TimeInterval = 5)
+  public func showWarning(message: Swift.String, duration: Foundation.TimeInterval = 5)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class AES1 {
+  public enum Length : Swift.Int {
+    case AES256
+    case AES192
+    case AES128
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum PBKDFAlgorithm {
+    case SHA1
+    case SHA224
+    case SHA256
+    case SHA384
+    case SHA512
+    public static func == (a: CoreKit.AES1.PBKDFAlgorithm, b: CoreKit.AES1.PBKDFAlgorithm) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Error : Swift.Error {
+    case crypto(CommonCrypto.CCCryptorStatus, Swift.String)
+    case invalidKeyLength
+    case invalidIVLength
+    case invalidEncoding
+  }
+  public static func encrypt(key: Foundation.Data, iv: Foundation.Data, data: Foundation.Data) throws -> Foundation.Data
+  public static func decrypt(key: Foundation.Data, iv: Foundation.Data, data: Foundation.Data) throws -> Foundation.Data
+  public static func generateKey(length: CoreKit.AES1.Length = .AES256) throws -> Foundation.Data
+  public static func generateIV() throws -> Foundation.Data
+  public static func deriveKey(password: Swift.String, salt: Foundation.Data, length: CoreKit.AES1.Length = .AES256, algorithm: CoreKit.AES1.PBKDFAlgorithm = .SHA256, iterations: Swift.UInt32 = 16384) throws -> Foundation.Data
+  @objc deinit
+}
+extension Foundation.NSUserActivity : CoreKit.StartCallConvertible {
+  public var startCallHandle: Swift.String? {
+    get
+  }
+  public var isVideo: Swift.Bool? {
+    get
+  }
+}
+extension Swift.Encodable {
+  public func toString() -> Swift.String?
+  public func asDictionary() throws -> [Swift.String : Any]
+}
+@objc @_inheritsConvenienceInitializers public class File : ObjectiveC.NSObject {
+  public class func temp(_ ext: Swift.String) -> Swift.String
+  public class func getPath(_ name: Swift.String) -> Swift.String
+  public class func exist(_ path: Swift.String) -> Swift.Bool
+  public class func remove(_ path: Swift.String)
+  public class func copy(_ src: Swift.String, _ dest: Swift.String, _ overwrite: Swift.Bool)
+  public class func writeData(to path: Foundation.URL)
+  public class func document(from url: Foundation.URL, completion: @escaping (Foundation.Data) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension CoreKit.File {
+  public class func created(_ path: Swift.String) -> Foundation.Date
+  public class func modified(_ path: Swift.String) -> Foundation.Date
+  public class func size(_ path: Swift.String) -> Swift.Int64
+  public class func diskFree() -> Swift.Int64
+}
+@objc @_inheritsConvenienceInitializers public class Dir : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension CoreKit.Dir {
+  public class func document() -> Swift.String
+  public class func document(_ component: Swift.String) -> Swift.String
+  public class func document(_ component1: Swift.String, and component2: Swift.String) -> Swift.String
+}
+extension CoreKit.Dir {
+  public class func cache() -> Swift.String
+  public class func cache(_ component: Swift.String) -> Swift.String
+}
+extension Swift.Dictionary where Key == Swift.String {
+  public func object<T>() -> T? where T : Swift.Decodable
+}
+extension Swift.Array where Element : Swift.Equatable {
+  public func satisfy(array: [Element]) -> Swift.Bool
+}
+extension CoreKit.App {
+  public enum String {
+    public static let appName: Swift.String
+    public static let cancel: Swift.String
+    public static let chats: Swift.String
+    public static let calls: Swift.String
+    public static let parameters: Swift.String
+    public static let contacts: Swift.String
+    public static let invite: Swift.String
+    public static let inviteControllerBody: Swift.String
+    public static let search: Swift.String
+    public static let inviteToEnigma: Swift.String
+    public static let block: Swift.String
+    public static let addUserToContacts: Swift.String
+    public static let userIsNotExistsInContacts: Swift.String
+    public static let you: Swift.String
+    public static let online: Swift.String
+    public static let group: Swift.String
+    public static let groupCreated: Swift.String
+    public static let goToAppSettings: Swift.String
+    public static let recordPermissionDeniedTitle: Swift.String
+    public static let recordPermissionDeniedMessage: Swift.String
+    public static let cameraPermissionDeniedTitle: Swift.String
+    public static let cameraPermissionDeniedMessage: Swift.String
+    public static let photoLibraryPermissionDeniedTitle: Swift.String
+    public static let photoLibraryPermissionDeniedMessage: Swift.String
+    public static let contactsPermissionDeniedTitle: Swift.String
+    public static let contactsPermissionDeniedMessage: Swift.String
+    public static let locationPermissionDeniedTitle: Swift.String
+    public static let locationPermissionDeniedMessage: Swift.String
+    public static let notificationPermissionDeniedTitle: Swift.String
+    public static let notificationPermissionDeniedMessage: Swift.String
+    public static let sessionError: Swift.String
+    public static let sessionRefreshWarning: Swift.String
+    public static let sessionRefreshError: Swift.String
+    public static let noAnswer: Swift.String
+    public static let messageInfoViewTitle: Swift.String
+    public static let reply: Swift.String
+    public static let forward: Swift.String
+    public static let star: Swift.String
+    public static let unStar: Swift.String
+    public static let copy: Swift.String
+    public static let edit: Swift.String
+    public static let delete: Swift.String
+    public static let deleteForMe: Swift.String
+    public static let deleteForAll: Swift.String
+    public static let setMessageDeleteTimeout: Swift.String
+    public static let info: Swift.String
+    public static let select: Swift.String
+    public static let readStatus: Swift.String
+    public static let audioMessage: Swift.String
+    public static let ended: Swift.String
+    public static let liveUntil: Swift.String
+    public static let realmPathIdentifier: Swift.String
+    public static let messages: Swift.String
+    public static let groupInfo: Swift.String
+    public static let contactInfo: Swift.String
+    public static let broadcast: Swift.String
+    public static let addGroupParticipants: Swift.String
+    public static let leaveGroup: Swift.String
+    public static let forwardMessage: Swift.String
+    public static let send: Swift.String
+    public static let sharedFileNotSupportedError: Swift.String
+    public static let authExpiredError: Swift.String
+    public static let operationFailedError: Swift.String
+    public static let fileIsLoading: Swift.String
+    public static let done: Swift.String
+    public static let selectWallpaper: Swift.String
+    public static let pleaseLoginAgain: Swift.String
+    public static let forgotConfirmationDialogMessage: Swift.String
+    public static let forgotConfirmationDialogConfirm: Swift.String
+    public static let definePasscode: Swift.String
+    public static let enterCurrentPasscode: Swift.String
+    public static let enterPasscode: Swift.String
+    public static let passcode: Swift.String
+    public static let passcodeDontMatch: Swift.String
+    public static let repeatPasscode: Swift.String
+    public static let newPasscodeDontMatch: Swift.String
+    public static let defineNewPasscode: Swift.String
+    public static let repeatNewPasscode: Swift.String
+    public static let incorrectPasscode: Swift.String
+    public static let faceId: Swift.String
+    public static let touchId: Swift.String
+    public static let yes: Swift.String
+    public static let biometricActivate: Swift.String
+    public static let biometricResult: Swift.String
+    public static let security: Swift.String
+    public static let writeGroupSubject: Swift.String
+  }
+}
+@_hasMissingDesignatedInitializers public class AuthHelper {
+  public static var user: CoreKit.User?
+  public static func saveInstanceUser(_ userInstance: CoreKit.User?)
+  public static func deleteInstanceUser()
+  public static func hasUser() -> Swift.Bool
+  @objc deinit
+}
+public func decode(jwt: Swift.String) throws -> any CoreKit.JWT
+public struct DecodedJWT : CoreKit.JWT {
+  public let header: [Swift.String : Any]
+  public let body: [Swift.String : Any]
+  public let signature: Swift.String?
+  public let string: Swift.String
+  public init(jwt: Swift.String) throws
+  public var expiresAt: Foundation.Date? {
+    get
+  }
+  public var issuer: Swift.String? {
+    get
+  }
+  public var subject: Swift.String? {
+    get
+  }
+  public var audience: [Swift.String]? {
+    get
+  }
+  public var issuedAt: Foundation.Date? {
+    get
+  }
+  public var notBefore: Foundation.Date? {
+    get
+  }
+  public var identifier: Swift.String? {
+    get
+  }
+  public var expired: Swift.Bool {
+    get
+  }
+}
+public struct Claim {
+  public var rawValue: Any? {
+    get
+  }
+  public var string: Swift.String? {
+    get
+  }
+  public var boolean: Swift.Bool? {
+    get
+  }
+  public var double: Swift.Double? {
+    get
+  }
+  public var integer: Swift.Int? {
+    get
+  }
+  public var date: Foundation.Date? {
+    get
+  }
+  public var array: [Swift.String]? {
+    get
+  }
+}
+extension os.Logger {
+  public static let messageProtocol: os.Logger
+  public static let cryptoEnigmaOld: os.Logger
+  public static let rsa: os.Logger
+  public static let xmppManager: os.Logger
+  public static let xmppGroupManager: os.Logger
+  public static let xmppMessageHandler: os.Logger
+  public static let xmppGroupOperationHandler: os.Logger
+  public static let conversationRealm: os.Logger
+  public static let messageFunctions: os.Logger
+  public static let attachmentDownloader: os.Logger
+  public static let attachmentUploader: os.Logger
+  public static let chatVC: os.Logger
+  public static let passcodeVC: os.Logger
+  public static let networkManager: os.Logger
+  public static let audioManager: os.Logger
+  public static let requestInterceptor: os.Logger
+  public static let requestInterceptorRetryManager: os.Logger
+  public static let receiverManager: os.Logger
+  public static let receiverXMPPManager: os.Logger
+  public static let shareViewController: os.Logger
+  public static let cnContactStore: os.Logger
+  public static let contactsManager: os.Logger
+  public static let callManager: os.Logger
+  public static let messaging: os.Logger
+  public static let primaryLocationMessageCell: os.Logger
+  public static let primaryLinkMessageCell: os.Logger
+  public static let callService: os.Logger
+  public static let authUserManager: os.Logger
+  public static let realmGroupKeyManager: os.Logger
+  public static let groupKeyManager: os.Logger
+  public static let groupKeyGenerator: os.Logger
+  public static let groupManager: os.Logger
+}
+extension CoreKit.ContentType : Swift.Equatable {}
+extension CoreKit.ContentType : Swift.Hashable {}
+extension CoreKit.ContentType : Swift.RawRepresentable {}
+extension CoreKit.HTTPHeaderField : Swift.Equatable {}
+extension CoreKit.HTTPHeaderField : Swift.Hashable {}
+extension CoreKit.HTTPHeaderField : Swift.RawRepresentable {}
+extension Foundation.Date.DateComponentReturnType : Swift.Equatable {}
+extension Foundation.Date.DateComponentReturnType : Swift.Hashable {}
+extension CoreKit.APPDefaultsKey : Swift.Equatable {}
+extension CoreKit.APPDefaultsKey : Swift.Hashable {}
+extension CoreKit.APPDefaultsKey : Swift.RawRepresentable {}
+extension CoreKit.PropertyList : Swift.Equatable {}
+extension CoreKit.PropertyList : Swift.Hashable {}
+extension CoreKit.PropertyList : Swift.RawRepresentable {}
+extension CoreKit.AES1.Length : Swift.Equatable {}
+extension CoreKit.AES1.Length : Swift.Hashable {}
+extension CoreKit.AES1.Length : Swift.RawRepresentable {}
+extension CoreKit.AES1.PBKDFAlgorithm : Swift.Equatable {}
+extension CoreKit.AES1.PBKDFAlgorithm : Swift.Hashable {}

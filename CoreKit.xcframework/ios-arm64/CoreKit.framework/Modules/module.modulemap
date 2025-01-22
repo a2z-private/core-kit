@@ -1,0 +1,4 @@
+framework module CoreKit {
+  header "CoreKit-Swift.h"
+  requires objc
+}
