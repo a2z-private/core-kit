@@ -11,6 +11,11 @@ let package = Package(
             name: "CoreKit", 
             targets: ["CoreKit"])
     ],
+    dependencies: [
+      .package(url: "https://github.com/Swinject/Swinject.git", exact: "2.8.4"),
+      .package(url: "https://github.com/malcommac/SwiftDate.git", exact: "7.0.0"),
+      .package(url: "https://github.com/scalessec/Toast-Swift.git", from: "5.0.0")
+    ],
     targets: [
         .binaryTarget(
             name: "CoreKit", 
