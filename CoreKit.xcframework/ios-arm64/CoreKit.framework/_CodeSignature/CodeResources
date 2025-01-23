@@ -40,6 +40,10 @@
 		<data>
 		rNrknSiehRgwfDwuKw4+NMuaeMA=
 		</data>
+		<key>build_xcframework.sh</key>
+		<data>
+		ZZtlD2I/LCM0I7VypDEjTyjULnQ=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -97,6 +101,13 @@
 			<key>hash2</key>
 			<data>
 			cEI1R/xMA6cqGxAbvenhgi86RvAM7K2f9WAtqtOvdgM=
+			</data>
+		</dict>
+		<key>build_xcframework.sh</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			PK9XkwyDhDtZEK5fYv2vNBuA4QNpuFAeIvLwstTYUVY=
 			</data>
 		</dict>
 	</dict>
