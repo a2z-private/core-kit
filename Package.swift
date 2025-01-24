@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "CoreKit", 
-            targets: ["CoreKit"])
+            targets: ["CoreKitWrapper"])
     ],
     dependencies: [
       .package(url: "https://github.com/Swinject/Swinject.git", exact: "2.8.4"),
@@ -17,6 +17,15 @@ let package = Package(
       .package(url: "https://github.com/scalessec/Toast-Swift.git", from: "5.0.0")
     ],
     targets: [
+        .target(
+            name: "CoreKitWrapper",
+            dependencies: [
+              .product(name: "Swinject", package: "Swinject"),
+              .product(name: "Toast", package: "Toast-Swift"),
+              .product(name: "SwiftDate", package: "SwiftDate"),
+              .target(name: "CoreKit"),
+            ],
+            path: "CoreKitWrapper"),
         .binaryTarget(
             name: "CoreKit", 
             path: "CoreKit.xcframework")
