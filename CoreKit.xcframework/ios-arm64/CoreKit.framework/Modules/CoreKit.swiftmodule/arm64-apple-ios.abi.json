@@ -16743,6 +16743,165 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "tableViewHeaderRowsColor",
+            "printedName": "tableViewHeaderRowsColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIColor",
+                "printedName": "UIKit.UIColor",
+                "usr": "c:objc(cs)UIColor"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So7UIColorC7CoreKitE24tableViewHeaderRowsColorABvpZ",
+            "mangledName": "$sSo7UIColorC7CoreKitE24tableViewHeaderRowsColorABvpZ",
+            "moduleName": "CoreKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So7UIColorC7CoreKitE24tableViewHeaderRowsColorABvgZ",
+                "mangledName": "$sSo7UIColorC7CoreKitE24tableViewHeaderRowsColorABvgZ",
+                "moduleName": "CoreKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "senderTextColor",
+            "printedName": "senderTextColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIColor",
+                "printedName": "UIKit.UIColor",
+                "usr": "c:objc(cs)UIColor"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So7UIColorC7CoreKitE15senderTextColorABvpZ",
+            "mangledName": "$sSo7UIColorC7CoreKitE15senderTextColorABvpZ",
+            "moduleName": "CoreKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So7UIColorC7CoreKitE15senderTextColorABvgZ",
+                "mangledName": "$sSo7UIColorC7CoreKitE15senderTextColorABvgZ",
+                "moduleName": "CoreKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "searchedHighlightTextBackgroundColor",
+            "printedName": "searchedHighlightTextBackgroundColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIColor",
+                "printedName": "UIKit.UIColor",
+                "usr": "c:objc(cs)UIColor"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So7UIColorC7CoreKitE36searchedHighlightTextBackgroundColorABvpZ",
+            "mangledName": "$sSo7UIColorC7CoreKitE36searchedHighlightTextBackgroundColorABvpZ",
+            "moduleName": "CoreKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So7UIColorC7CoreKitE36searchedHighlightTextBackgroundColorABvgZ",
+                "mangledName": "$sSo7UIColorC7CoreKitE36searchedHighlightTextBackgroundColorABvgZ",
+                "moduleName": "CoreKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Class",
@@ -22091,22 +22250,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "UIKit.UIImage?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIImage",
-                    "printedName": "UIKit.UIImage",
-                    "usr": "c:objc(cs)UIImage"
-                  }
-                ],
-                "usr": "s:Sq"
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
               }
             ],
             "declKind": "Var",
-            "usr": "s:So7UIImageC7CoreKitE16defaultWallpaperABSgvpZ",
-            "mangledName": "$sSo7UIImageC7CoreKitE16defaultWallpaperABSgvpZ",
+            "usr": "s:So7UIImageC7CoreKitE16defaultWallpaperABvpZ",
+            "mangledName": "$sSo7UIImageC7CoreKitE16defaultWallpaperABvpZ",
             "moduleName": "CoreKit",
             "static": true,
             "declAttributes": [
@@ -22126,22 +22277,67 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "UIKit.UIImage?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UIImage",
-                        "printedName": "UIKit.UIImage",
-                        "usr": "c:objc(cs)UIImage"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:So7UIImageC7CoreKitE16defaultWallpaperABSgvgZ",
-                "mangledName": "$sSo7UIImageC7CoreKitE16defaultWallpaperABSgvgZ",
+                "usr": "s:So7UIImageC7CoreKitE16defaultWallpaperABvgZ",
+                "mangledName": "$sSo7UIImageC7CoreKitE16defaultWallpaperABvgZ",
+                "moduleName": "CoreKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "defaultWallpaperDark",
+            "printedName": "defaultWallpaperDark",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So7UIImageC7CoreKitE20defaultWallpaperDarkABvpZ",
+            "mangledName": "$sSo7UIImageC7CoreKitE20defaultWallpaperDarkABvpZ",
+            "moduleName": "CoreKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So7UIImageC7CoreKitE20defaultWallpaperDarkABvgZ",
+                "mangledName": "$sSo7UIImageC7CoreKitE20defaultWallpaperDarkABvgZ",
                 "moduleName": "CoreKit",
                 "static": true,
                 "implicit": true,
@@ -29086,49 +29282,56 @@
     {
       "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIImageExtension2.swift",
       "kind": "StringLiteral",
-      "offset": 4806,
+      "offset": 4817,
+      "length": 22,
+      "value": "\"defaultWallpaperDark\""
+    },
+    {
+      "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIImageExtension2.swift",
+      "kind": "StringLiteral",
+      "offset": 4892,
       "length": 15,
       "value": "\"chevron.right\""
     },
     {
       "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIImageExtension2.swift",
       "kind": "StringLiteral",
-      "offset": 4877,
+      "offset": 4963,
       "length": 6,
       "value": "\"atom\""
     },
     {
       "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIImageExtension2.swift",
       "kind": "StringLiteral",
-      "offset": 4942,
+      "offset": 5028,
       "length": 17,
       "value": "\"person.2.circle\""
     },
     {
       "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIImageExtension2.swift",
       "kind": "StringLiteral",
-      "offset": 5022,
+      "offset": 5108,
       "length": 14,
       "value": "\"minus.circle\""
     },
     {
       "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIImageExtension2.swift",
       "kind": "StringLiteral",
-      "offset": 5094,
+      "offset": 5180,
       "length": 13,
       "value": "\"plus.circle\""
     },
     {
       "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIImageExtension2.swift",
       "kind": "StringLiteral",
-      "offset": 5166,
+      "offset": 5252,
       "length": 15,
       "value": "\"pencil.circle\""
     },
     {
       "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIImageExtension2.swift",
       "kind": "StringLiteral",
-      "offset": 5239,
+      "offset": 5325,
       "length": 14,
       "value": "\"photo.circle\""
     },
@@ -29250,6 +29453,27 @@
       "offset": 1652,
       "length": 23,
       "value": "\"cameraBackgroundColor\""
+    },
+    {
+      "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIColorExtension.swift",
+      "kind": "StringLiteral",
+      "offset": 1742,
+      "length": 26,
+      "value": "\"tableViewHeaderRowsColor\""
+    },
+    {
+      "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIColorExtension.swift",
+      "kind": "StringLiteral",
+      "offset": 1826,
+      "length": 17,
+      "value": "\"senderTextColor\""
+    },
+    {
+      "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/UI\/UIColorExtension.swift",
+      "kind": "StringLiteral",
+      "offset": 1922,
+      "length": 38,
+      "value": "\"searchedHighlightTextBackgroundColor\""
     },
     {
       "filePath": "\/Users\/elshadsm\/Projects\/iOS\/corekit\/Sources\/CoreKit\/Service\/ConfigurationManager.swift",

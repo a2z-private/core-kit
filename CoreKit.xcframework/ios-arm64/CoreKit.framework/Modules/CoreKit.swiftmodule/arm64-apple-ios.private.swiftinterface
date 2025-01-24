@@ -368,7 +368,8 @@ extension UIKit.UIImage {
   public static let search: UIKit.UIImage
   public static let stop: UIKit.UIImage
   public static let share: UIKit.UIImage
-  public static let defaultWallpaper: UIKit.UIImage?
+  public static let defaultWallpaper: UIKit.UIImage
+  public static let defaultWallpaperDark: UIKit.UIImage
   public static let right: UIKit.UIImage?
   public static let wallpaper: UIKit.UIImage
   public static let createGroup: UIKit.UIImage
@@ -407,6 +408,9 @@ extension UIKit.UIColor {
   public static let unknownViewBackgroundColor: UIKit.UIColor
   public static let unknownViewButtonBackgroundColor: UIKit.UIColor
   public static let cameraBackgroundColor: UIKit.UIColor
+  public static let tableViewHeaderRowsColor: UIKit.UIColor
+  public static let senderTextColor: UIKit.UIColor
+  public static let searchedHighlightTextBackgroundColor: UIKit.UIColor
 }
 @_hasMissingDesignatedInitializers public class CoreServiceLocator : CoreKit.ServiceLocator {
   public static let shared: CoreKit.CoreServiceLocator
