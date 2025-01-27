@@ -1,4 +1,4 @@
-rm -rf archive
+rm -rf archives CoreKit.xcframework
 
 # For iOS arm64 Device
 xcodebuild archive \
@@ -7,16 +7,22 @@ xcodebuild archive \
 -destination 'generic/platform=iOS' \
 -archivePath 'archives/CoreKit-iOS' \
 SKIP_INSTALL=NO \
-BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+BUILD_LIBRARIES_FOR_DISTRIBUTION=YES \
+ENABLE_BITCODE=YES \
+STRIP_SWIFT_SYMBOLS=NO \
+SWIFT_VERSION=5.0
 
-# For Simulators
+# For iOS Simulator (x86_64 + arm64)
 xcodebuild archive \
 -scheme CoreKit \
 -configuration Release \
 -destination 'generic/platform=iOS Simulator' \
 -archivePath 'archives/CoreKit-iOS-Simulator' \
 SKIP_INSTALL=NO \
-BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+BUILD_LIBRARIES_FOR_DISTRIBUTION=YES \
+ENABLE_BITCODE=YES \
+STRIP_SWIFT_SYMBOLS=NO \
+SWIFT_VERSION=5.0
 
 # Create XCFramework
 xcodebuild -create-xcframework \
